@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import NavProfileItem from './NavProfileItem';
 
 const NavProfile=(props)=>{
@@ -7,21 +8,16 @@ const NavProfile=(props)=>{
         {
             Id:1,
             url:'profile',
-            icon:'fas fa-user',
-            menu:'Mi Perfil'
+            icon:'fas fa-user icon',
+            menu:'Perfil'
         },
         {
             Id:2,
-            url:'bug',
-            icon:'fas fa-bug',
-            menu:'Reportar un Error'
+            url:'settings',
+            icon:'fas fa-cog icon',
+            menu:'Configuracion'
         },
-        {
-            Id:3,
-            url:'logoff',
-            icon:'fas fa-sign-out-alt',
-            menu:'Salir'
-        },
+        
     ]
     return(
         <div className="navbar-end">
@@ -32,7 +28,14 @@ const NavProfile=(props)=>{
                         {data.map((item, idx)=>{
                                     return <NavProfileItem key={idx}data={item}/>
                             })}  
-                                
+                        <hr className="navbar-divider" />
+                        <Link to="logoff" className="navbar-item">
+
+                            <div>
+                            <span><i className="fas fa-sign-out-alt icon"></i></span>
+                                Salir
+                            </div>       
+                        </Link>
                 </div>
               </div>
         </div>

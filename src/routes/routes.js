@@ -24,16 +24,19 @@ const Rutas=()=>{
                 <div className="column">
                     <Switch>
                         <Route exact path="/books" component={Books}/>
-                        {/* <Books /> */}
+                       
+                        <Route exact path="/mybooks" component={Books}/>
                         
                         <Route exact path="/customers" component={Customers}/>
-                        {/* <Customer /> */}
+                        
                         
                         <Route exact path="/orders" component={Orders}/>
-                        {/* <Order /> */}
                         
+                        <Route exact path="/myorders" component={Orders}/>
+
                         <Route exact path="/" component={Home}/>
-                        {/* <Dashboard /> */}
+                        
+                        <Route exact path="/Home" component={Home}/>
                         
                         <Route component={Errorpage}/>
                             
