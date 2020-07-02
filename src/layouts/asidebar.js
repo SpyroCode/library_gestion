@@ -66,7 +66,7 @@ const Asidebar=()=>{
                     Panel de Administracion</NavLink>
                   <ul>
                     <li>
-                      <NavLink to="members" className="has-text-black" activeClassName="is-active">
+                      <NavLink to="customers" className="has-text-black" activeClassName="is-active">
                         <i className="fas fa-users icon"></i>
                         Miembros</NavLink>
                     </li>

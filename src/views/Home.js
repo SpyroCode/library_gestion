@@ -16,7 +16,7 @@ const Home=()=>{
               <div className="card has-background-primary has-text-white">
                 <div className="card-header">
                   <div className="card-header-title has-text-white">
-                    Top Seller Total
+                    Miembros Activos
                   </div>
                 </div>
                 <div className="card-content">
@@ -28,7 +28,7 @@ const Home=()=>{
               <div className="card has-background-warning has-text-black">
                 <div className="card-header">
                   <div className="card-header-title has-text-black is-uppercase">
-                    Revenue
+                    Ticket Promedio
                   </div>
                 </div>
                 <div className="card-content">
@@ -39,8 +39,8 @@ const Home=()=>{
             <div className="column">
               <div className="card has-background-info has-text-white">
                 <div className="card-header">
-                  <div className="card-header-title has-text-white is-uppercase">
-                    Feedback
+                  <div className="card-header-title has-text-white ">
+                    Libros Prestados
                   </div>
                 </div>
                 <div className="card-content">
@@ -51,10 +51,10 @@ const Home=()=>{
             <div className="column">
               <div className="card has-background-danger has-text-white">
                 <div className="card-header">
-                  <div className="card-header-title has-text-white">Orders</div>
+                  <div className="card-header-title has-text-white">Ordenes</div>
                 </div>
                 <div className="card-content">
-                  <p className="is-size-3">425k</p>
+                  <p className="is-size-3">425</p>
                 </div>
               </div>
             </div>
@@ -63,7 +63,26 @@ const Home=()=>{
             <div className="column is-4-desktop is-6-tablet">
               <article className="message is-info">
                 <div className="message-header">
-                  <p>Info</p>
+                  <p>Aviso</p>
+                  <button className="delete" aria-label="delete"></button>
+                </div>
+                <div className="message-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Pellentesque risus mi, tempus quis placerat
+                  ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
+                  fringilla. Nullam gravida purus diam, et dictum
+                  felis venenatisefficitur. Aenean ac
+                  eleifend lacus, in mollis lectus. Donec sodales, arcu
+                  et sollicitudin porttitor, tortor urna tempor ligula, id
+                  porttitor mi magna a neque. Donec dui urna, vehicula et sem
+                  eget, facilisis sodales sem.
+                </div>
+              </article>
+            </div>
+            <div className="column is-4-desktop is-6-tablet">
+              <article className="message is-danger">
+                <div className="message-header">
+                  <p>Aviso</p>
                   <button className="delete" aria-label="delete"></button>
                 </div>
                 <div className="message-body">
@@ -82,7 +101,7 @@ const Home=()=>{
             <div className="column is-4-desktop is-6-tablet">
               <article className="message is-success">
                 <div className="message-header">
-                  <p>Info</p>
+                  <p>Aviso</p>
                   <button className="delete" aria-label="delete"></button>
                 </div>
                 <div className="message-body">
