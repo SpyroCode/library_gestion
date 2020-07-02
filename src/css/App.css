@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+html,
+body {
+  height: 100%;
+  background-color: #efefef;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.px-1,
+.p-1 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.py-1,
+.p-1 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.box-shadow-y {
+  -webkit-box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.menu-container {
+  position: fixed;
+  top: 5.4%;
+  bottom: 0;
+  margin-top: auto;
+  min-width: 300px;
+  z-index: 10;
+  background-color: transparent;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.menu-container.active {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+  vertical-align: baseline;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.toggler {
+  margin-left: 0;
+  cursor: pointer;
+}
+
+@media (min-width: 769px) {
+  .menu-container {
+    width: 25%;
+    min-width: auto;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (min-width: 1024px) {
+  .menu-container {
+    width: 16.6667%;
+    min-width: auto;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
   }
 }

@@ -7,7 +7,7 @@ import Home from '../views/Home';
 import Books from '../views/Books';
 import Customers from '../views/Customers';
 import Orders from '../views/Orders';
-import Footer from '../layouts/footer';
+//import Footer from '../layouts/footer';
 
 
 const Rutas=()=>{
@@ -16,36 +16,37 @@ const Rutas=()=>{
 
         <Router>
         <Header/> 
-        <section className="section">
-            <div className="columns">
-                <div className="column is-one-fifth">
-                    <Asidebar/>
-                </div>
-                <div className="column">
-                    <Switch>
-                        <Route exact path="/books" component={Books}/>
-                       
-                        <Route exact path="/mybooks" component={Books}/>
+        
+            <div className="columns is-variable is-0">
+                
+                    
+                        <Asidebar/>
+                    
+                    <div className="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile">
+                        <Switch>
+                            <Route exact path="/books" component={Books}/>
                         
-                        <Route exact path="/customers" component={Customers}/>
-                        
-                        
-                        <Route exact path="/orders" component={Orders}/>
-                        
-                        <Route exact path="/myorders" component={Orders}/>
-
-                        <Route exact path="/" component={Home}/>
-                        
-                        <Route exact path="/Home" component={Home}/>
-                        
-                        <Route component={Errorpage}/>
+                            <Route exact path="/mybooks" component={Books}/>
                             
-                        
-                    </Switch>
-                </div>     
+                            <Route exact path="/customers" component={Customers}/>
+                            
+                            
+                            <Route exact path="/orders" component={Orders}/>
+                            
+                            <Route exact path="/myorders" component={Orders}/>
+
+                            <Route exact path="/" component={Home}/>
+                            
+                            <Route exact path="/Home" component={Home}/>
+                            
+                            <Route component={Errorpage}/>
+                                
+                            
+                        </Switch>
+                    </div>     
             </div>
-        </section>  
-        <Footer/>
+        
+        {/* <Footer/> */}
         </Router>
     )
 

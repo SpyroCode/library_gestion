@@ -4,7 +4,13 @@ const Home=()=>{
     return(
         <div className="p-1">
           
-
+          <div className="columns is-variable is-desktop">
+            <div className="column">
+              <h1 className="title">
+                Dashboard
+              </h1>
+            </div>
+          </div>
           <div className="columns  is-variable is-desktop">
             <div className="column">
               <div className="card has-background-primary has-text-white">

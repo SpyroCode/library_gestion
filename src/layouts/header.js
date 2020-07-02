@@ -59,7 +59,7 @@ const Header=()=>{
             </div>
             <div className="navbar-end">
               <Link to="notifications" className="navbar-item">
-              <i class="fas fa-bell icon"></i>
+              <i className="fas fa-bell icon"></i>
               </Link>
               {/* <div class="navbar-item has-dropdown is-hoverable">
                 <a href="#" class="navbar-link">

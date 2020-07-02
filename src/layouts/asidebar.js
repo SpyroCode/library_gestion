@@ -77,7 +77,7 @@ const Asidebar=()=>{
                     </li>
                     <li>
                       <NavLink to="orders" className="has-text-black" activeClassName="is-active">
-                      <i class="fas fa-clipboard-list icon"></i>
+                      <i className="fas fa-clipboard-list icon"></i>
                         Ordenes</NavLink>
                     </li>
                   </ul>
@@ -88,7 +88,7 @@ const Asidebar=()=>{
                 <li>
                   <NavLink to="mybooks" className="has-text-black" activeClassName="has-text-white is-active">
                     <i className="fas fa-book icon"></i>
-                    Libros</NavLink>
+                    Mis Libros</NavLink>
                 </li>
                 <li>
                   <NavLink to="myorders" className="has-text-black" activeClassName="is-active">
