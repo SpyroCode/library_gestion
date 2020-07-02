@@ -23,9 +23,9 @@ body {
 
 .menu-container {
   position: fixed;
-  top: 5.4%;
+  top: 8%;
   bottom: 0;
-  margin-top: auto;
+  margin-top: auto;   
   min-width: 300px;
   z-index: 10;
   background-color: transparent;
