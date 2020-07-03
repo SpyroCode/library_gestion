@@ -60,10 +60,12 @@ const Asidebar=()=>{
                     <i className="fas fa-cogs icon"></i>
                     Configuraciones</NavLink>
                 </li>
+                <div className="navbar-item has-dropdown is-hoverable"> 
                 <li>
-                  <NavLink to="administration" className="has-text-black" activeClassName="is-active">
+                <div className="navbar-link">
                     <i className="fas fa-users-cog icon"></i>
-                    Panel de Administracion</NavLink>
+                    Panel de Administracion</div>
+                  <div className="navbar-dropdown">  
                   <ul>
                     <li>
                       <NavLink to="customers" className="has-text-black" activeClassName="is-active">
@@ -81,7 +83,9 @@ const Asidebar=()=>{
                         Ordenes</NavLink>
                     </li>
                   </ul>
+                  </div>
                 </li>
+                </div>
               </ul>
               <p className="menu-label has-text-lighter">Panel de Usuario</p>
               <ul className="menu-list">
