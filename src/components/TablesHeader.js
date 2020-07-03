@@ -2,16 +2,16 @@ import React from 'react';
 
 const HeaderTables=()=>{
     return(
-        <header class="card-header">
-                <div class="card-header-title has-background-info has-text-light">
-                  <div class="field is-horizontal">
-                  <div class="field-label is-normal">
-                    <label class="label has-text-info-light">Buscar</label>
+        <header className="card-header">
+                <div className="card-header-title has-background-info has-text-light">
+                  <div className="field is-horizontal">
+                  <div className="field-label is-normal">
+                    <label className="label has-text-info-light">Buscar</label>
                   </div>
-                  <div class="field-body">
-                    <div class="field">
-                      <p class="control">
-                        <input class="input" type="text" placeholder="Nombre"/>
+                  <div className="field-body">
+                    <div className="field">
+                      <p className="control">
+                        <input className="input" type="text" placeholder="Nombre"/>
                       </p>
                     </div>
                   </div>

@@ -92,13 +92,13 @@ const Customers=()=>{
           </div>
           <div className="columns  is-variable is-desktop">
             <div className="column">
-            <div class="column is-full">
-              <div class="card">
+            <div className="column is-full">
+              <div className="card">
               <HeaderTables/>
-                <div class="card-content">
+                <div className="card-content">
                     {/* componente dinamicos tablas */}
-                  <div class="media">
-                  <table class="table">
+                  <div className="media">
+                  <table className="table">
                   <thead>
                     <tr>
                     
@@ -119,19 +119,19 @@ const Customers=()=>{
                   </table>
                </div>
                     {/* componente dinamicos tablas */}
-                   <Link href="#" class="button is-link is-outlined">Ver todos</Link>
+                   <Link href="#" className="button is-link is-outlined">Ver todos</Link>
                 </div>
                 </div>
               </div>
               
             </div>
           </div>
-          <div class="modal">
-            <div class="modal-background"></div>
-              <div class="modal-content">
+          <div className="modal">
+            <div className="modal-background"></div>
+              <div className="modal-content">
             
               </div>
-            <button class="modal-close is-large" aria-label="close"></button>
+            <button className="modal-close is-large" aria-label="close"></button>
           </div> 
         </div> 
     )

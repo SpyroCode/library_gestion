@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const TablesRecordsItems=(props)=>{
-    const {titulo,author,editorial,image,status,obs} = props.data
+    const {titulo,author,editorial,image,status} = props.data
     
     
     return(
@@ -23,9 +23,9 @@ const TablesRecordsItems=(props)=>{
                         </td>
                         <td>{status}</td>
                         <td>
-                          <div class="buttons">
-                            <button class="button is-warning"><i class="fas fa-edit"></i></button>
-                            <button class="button is-danger"><i class="fas fa-ban"></i></button>
+                          <div className="buttons">
+                            <button className="button is-warning"><i className="fas fa-edit"></i></button>
+                            <button className="button is-danger"><i className="fas fa-ban"></i></button>
                           </div>
                         </td>
                        

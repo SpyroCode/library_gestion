@@ -17,9 +17,9 @@ const TablesRecordsItems=(props)=>{
                         <td>{totOrd}</td>
                         <td>{ordAct}</td>
                         <td>
-                          <div class="buttons">
-                            <button class="button is-warning"><i class="fas fa-edit"></i></button>
-                            <button class="button is-danger"><i class="fas fa-user-times"></i></button>
+                          <div className="buttons">
+                            <button className="button is-warning"><i className="fas fa-edit"></i></button>
+                            <button className="button is-danger"><i className="fas fa-user-times"></i></button>
                           </div>
                         </td>
                         <td>{obs} </td>
