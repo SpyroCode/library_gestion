@@ -1,5 +1,4 @@
 import React from 'react';
-import {  NavLink } from "react-router-dom"
 
 const TablesRecordsItems=(props)=>{
     const {nombre,correo,telefono,totOrd,ordAct,obs} = props.data
@@ -18,8 +17,8 @@ const TablesRecordsItems=(props)=>{
                         <td>{ordAct}</td>
                         <td>
                           <div className="buttons">
-                            <button className="button is-warning"><i className="fas fa-edit"></i></button>
-                            <button className="button is-danger"><i className="fas fa-user-times"></i></button>
+                            <button className="button is-warning is-small"><i className="fas fa-edit"></i></button>
+                            <button className="button is-danger is-small"><i className="fas fa-user-times"></i></button>
                           </div>
                         </td>
                         <td>{obs} </td>
