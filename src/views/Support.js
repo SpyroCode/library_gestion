@@ -1,24 +1,24 @@
 import React from 'react'
+import Header from '../layouts/header';
+import Asidebar from '../layouts/asidebar'
 
 const Support=()=>{
 
     
     return    (
-        <div className="p-1">
-          
-        <div className="columns is-variable is-desktop">
-          <div className="column">
-            <h1 className="title">
-              Support
-            </h1>
-          </div>
-        </div>
-        <div className="columns  is-variable is-desktop">
-          <div className="column">
-                  <h1>Support</h1>
-          </div>
-        </div>
-      </div>  
+      <>
+      <Header/> 
+      
+      <div className="columns is-variable is-0">
+    <Asidebar/>
+    <div className="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile">
+      <div className="p-1">
+        
+        
+      </div>
+    </div> 
+    </div>
+    </> 
     )
 
 }
