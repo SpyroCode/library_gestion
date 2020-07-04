@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components//TablesTitlesItems';
 import TablesRecordsItemsBooks from '../components//TablesRecordsItmesBooks';
 import HeaderTables from '../components/TablesHeader'
@@ -75,53 +76,58 @@ const dataMiembros=[
 
 const Customers=()=>{
     return(
-        <div className="p-1">
-          
-          <div className="columns is-variable is-desktop">
-            <div className="column">
-              <h1 className="title">
-                Customer
-              </h1>
-            </div>
-          </div>
-          <div className="columns  is-variable is-desktop">
-            <div className="column">
-            <div className ="column is-full">
-              <div className="card">
-              <HeaderTables/>
-                <div className="card-content">
-                    {/* componente dinamicos tablas */}
-                  <div className="media">
-                  <table className="table">
-                  <thead>
-                    <tr>
-                    
-                        {data.map((item, idx)=>{
-                                return <TableTitlesItems key={idx}data={item}/>
-                        })}   
-                    
-                    
-                    </tr>
-                </thead>   
-
-                        {dataMiembros.map((item, idx)=>{
-                                return <TablesRecordsItemsBooks key={idx}data={item}/>
-                        })}    
-                                             
-                      
-                                      
-                  </table>
-               </div>
-                    {/* componente dinamicos tablas */}
-                   <Link href="#" className="button is-link is-outlined">Ver todos</Link>
-                </div>
-                </div>
+      <>
+      <Asidebar/>
+      <div className="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile">
+          <div className="p-1">
+            
+            <div className="columns is-variable is-desktop">
+              <div className="column">
+                <h1 className="title">
+                  Customer
+                </h1>
               </div>
-              
             </div>
-          </div>
-          
-        </div> 
+            <div className="columns  is-variable is-desktop">
+              <div className="column">
+              <div className ="column is-full">
+                <div className="card">
+                <HeaderTables/>
+                  <div className="card-content">
+                      {/* componente dinamicos tablas */}
+                    <div className="media">
+                    <table className="table">
+                    <thead>
+                      <tr>
+                      
+                          {data.map((item, idx)=>{
+                                  return <TableTitlesItems key={idx}data={item}/>
+                          })}   
+                      
+                      
+                      </tr>
+                  </thead>   
+
+                          {dataMiembros.map((item, idx)=>{
+                                  return <TablesRecordsItemsBooks key={idx}data={item}/>
+                          })}    
+                                              
+                        
+                                        
+                    </table>
+                </div>
+                      {/* componente dinamicos tablas */}
+                    <Link href="#" className="button is-link is-outlined">Ver todos</Link>
+                  </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div> 
+      </div>  
+      </>  
     )
 }
 

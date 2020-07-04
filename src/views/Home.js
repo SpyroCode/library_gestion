@@ -1,124 +1,20 @@
 import React from 'react'
+import Asidebar from '../layouts/asidebar'
+import DashBoard from '../components/Dashboard'
+import Avisos from '../components/Avisos'
 
 const Home=()=>{
     return(
+      <>
+      <Asidebar/>
+      <div className="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile">
         <div className="p-1">
           
-          <div className="columns is-variable is-desktop">
-            <div className="column">
-              <h1 className="title">
-                Dashboard
-              </h1>
-            </div>
-          </div>
-          <div className="columns  is-variable is-desktop">
-            <div className="column">
-              <div className="card has-background-primary has-text-white">
-                <div className="card-header">
-                  <div className="card-header-title has-text-white">
-                    Miembros Activos
-                  </div>
-                </div>
-                <div className="card-content">
-                  <p className="is-size-3">56,590</p>
-                </div>
-              </div>
-            </div>
-            <div className="column">
-              <div className="card has-background-warning has-text-black">
-                <div className="card-header">
-                  <div className="card-header-title has-text-black is-uppercase">
-                    Ticket Promedio
-                  </div>
-                </div>
-                <div className="card-content">
-                  <p className="is-size-3">55%</p>
-                </div>
-              </div>
-            </div>
-            <div className="column">
-              <div className="card has-background-info has-text-white">
-                <div className="card-header">
-                  <div className="card-header-title has-text-white ">
-                    Libros Prestados
-                  </div>
-                </div>
-                <div className="card-content">
-                  <p className="is-size-3">78 %</p>
-                </div>
-              </div>
-            </div>
-            <div className="column">
-              <div className="card has-background-danger has-text-white">
-                <div className="card-header">
-                  <div className="card-header-title has-text-white">Ordenes</div>
-                </div>
-                <div className="card-content">
-                  <p className="is-size-3">425</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="columns is-variable">
-            <div className="column is-4-desktop is-6-tablet">
-              <article className="message is-info">
-                <div className="message-header">
-                  <p>Aviso</p>
-                  <button className="delete" aria-label="delete"></button>
-                </div>
-                <div className="message-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque risus mi, tempus quis placerat
-                  ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-                  fringilla. Nullam gravida purus diam, et dictum
-                  felis venenatisefficitur. Aenean ac
-                  eleifend lacus, in mollis lectus. Donec sodales, arcu
-                  et sollicitudin porttitor, tortor urna tempor ligula, id
-                  porttitor mi magna a neque. Donec dui urna, vehicula et sem
-                  eget, facilisis sodales sem.
-                </div>
-              </article>
-            </div>
-            <div className="column is-4-desktop is-6-tablet">
-              <article className="message is-danger">
-                <div className="message-header">
-                  <p>Aviso</p>
-                  <button className="delete" aria-label="delete"></button>
-                </div>
-                <div className="message-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque risus mi, tempus quis placerat
-                  ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-                  fringilla. Nullam gravida purus diam, et dictum
-                  felis venenatisefficitur. Aenean ac
-                  eleifend lacus, in mollis lectus. Donec sodales, arcu
-                  et sollicitudin porttitor, tortor urna tempor ligula, id
-                  porttitor mi magna a neque. Donec dui urna, vehicula et sem
-                  eget, facilisis sodales sem.
-                </div>
-              </article>
-            </div>
-            <div className="column is-4-desktop is-6-tablet">
-              <article className="message is-success">
-                <div className="message-header">
-                  <p>Aviso</p>
-                  <button className="delete" aria-label="delete"></button>
-                </div>
-                <div className="message-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque risus mi, tempus quis placerat
-                  ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-                  fringilla. Nullam gravida purus diam, et dictum
-                  felis venenatisefficitur. Aenean ac
-                  eleifend lacus, in mollis lectus. Donec sodales, arcu
-                  et sollicitudin porttitor, tortor urna tempor ligula, id
-                  porttitor mi magna a neque. Donec dui urna, vehicula et sem
-                  eget, facilisis sodales sem.
-                </div>
-              </article>
-            </div>
-          </div>
+          <DashBoard/>
+          <Avisos/>
         </div>
+      </div> 
+      </> 
     )
 }
 

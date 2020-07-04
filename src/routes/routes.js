@@ -7,6 +7,7 @@ import Home from '../views/Home';
 import Books from '../views/Books';
 import Customers from '../views/Customers';
 import Orders from '../views/Orders';
+import Login from '../views/login'
 //import Footer from '../layouts/footer';
 
 
@@ -20,9 +21,9 @@ const Rutas=()=>{
             <div className="columns is-variable is-0">
                 
                     
-                        <Asidebar/>
+                        
                     
-                    <div className="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile">
+                    
                         <Switch>
                             <Route exact path="/books" component={Books}/>
                         
@@ -38,13 +39,15 @@ const Rutas=()=>{
                             <Route exact path="/" component={Home}/>
                             
                             <Route exact path="/Home" component={Home}/>
+
+                            <Route exact path="/login" component={Login}/>
                             
                             <Route component={Errorpage}/>
                                 
                             
                         </Switch>
                     </div>     
-            </div>
+            
         
         {/* <Footer/> */}
         </Router>

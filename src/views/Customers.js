@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components//TablesTitlesItems';
 import TablesRecordsItems from '../components//TablesRecordsItmes';
 import HeaderTables from '../components/TablesHeader'
@@ -81,6 +82,9 @@ const dataMiembros=[
 
 const Customers=()=>{
     return(
+      <>
+      <Asidebar/>
+      <div className="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile">
         <div className="p-1">
           
           <div className="columns is-variable is-desktop">
@@ -128,6 +132,8 @@ const Customers=()=>{
           </div>
            
         </div> 
+      </div>  
+      </>
     )
 }
 
