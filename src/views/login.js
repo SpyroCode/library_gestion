@@ -9,7 +9,30 @@ const Login=()=>{
     const [isError, setIsError] = useState(false);
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const handleSubmit=()=> {
+    const handleSubmit=(event)=> {
+
+            
+        const data = { 
+            email: userName,
+            password:password
+
+         };
+         console.log(data)
+        fetch('https://test.credicormexicano.com.mx/api/login', {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log('Success:', data);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+
         if(userName==='efren@gmail.com' && password==='1234'){
             setLoggedIn(true);
 
@@ -17,6 +40,7 @@ const Login=()=>{
             setIsError(true);
         }
         
+        event.preventDefault();
 
       }
 
@@ -27,7 +51,7 @@ const Login=()=>{
         return (<Redirect to="/home" />);
       }
       if (isError) {
-          alert('Error de Usuario o contraseña')  
+          console.log("error de usuarios y contraseña")
       }
     
     
@@ -37,7 +61,7 @@ const Login=()=>{
             <div className="container">
                 <div className="columns is-centered">
                 <div className="column is-5-tablet is-4-desktop is-3-widescreen">
-                    <form className="box">
+                    <form onSubmit={handleSubmit} className="box">
                     <div className="field has-text-centered">
                         <img src="images/user.png" alt=""/>
                     </div>
@@ -70,7 +94,7 @@ const Login=()=>{
                     </div>
                     
                     <div className="field">
-                        <button onClick={handleSubmit} className="button is-success">Acceder</button>
+                        <button className="button is-success">Acceder</button>
                     </div>
                        
                     </form>
