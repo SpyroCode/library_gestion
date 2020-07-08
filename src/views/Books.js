@@ -48,13 +48,15 @@ const data=[
 
 const Books=()=>{
   const [books,setBooks]=useState([])
+  
   useEffect( ()=>{
     getBooks();
   },[])
   
     //llamada a backen;
     const getBooks=async()=>{
-      const url=`http://127.0.0.1:3500/book`
+      
+      const url=`http://127.0.0.1:3500/book/`
       const token=localStorage.getItem('token')
       const resp = await fetch(url, {
       method: "GET", // or 'PUT'

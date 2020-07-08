@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
+import { UserContext } from "../helpers/auth";
 
 const Login = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -7,6 +8,7 @@ const Login = () => {
   //const [message,setmessage]=useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const {setUser}=useContext(UserContext);
   //llamada a backen;
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,6 +29,8 @@ const Login = () => {
     //llamada a backen
 
      if (jsonData.token) {
+      
+      setUser(jsonData.tokenData)
       localStorage.setItem('token',jsonData.token); 
       localStorage.setItem('tokenName',jsonData.tokenData.name); 
       localStorage.setItem('tokenRole',jsonData.tokenData.role);
