@@ -28,6 +28,9 @@ const Login = () => {
 
      if (jsonData.token) {
       localStorage.setItem('token',jsonData.token); 
+      localStorage.setItem('tokenName',jsonData.tokenData.name); 
+      localStorage.setItem('tokenRole',jsonData.tokenData.role);
+      localStorage.setItem('tokenid',jsonData.tokenData.id); 
       setLoggedIn(true);
     } else {
        setIsError(true);

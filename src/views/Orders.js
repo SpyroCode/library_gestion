@@ -56,7 +56,8 @@ const Orders=()=>{
     const getOrders=async()=>{
       
       const token=localStorage.getItem('token')
-      const resp = await fetch("http://127.0.0.1:3500/orders", {
+      const url=`http://127.0.0.1:3500/orders`
+      const resp = await fetch(url, {
       method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

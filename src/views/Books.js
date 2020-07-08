@@ -2,8 +2,8 @@ import React, {useState,useEffect} from 'react'
 import { Link } from "react-router-dom"
 import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
-import TableTitlesItems from '../components//TablesTitlesItems';
-import TablesRecordsItemsBooks from '../components//TablesRecordsItmesBooks';
+import TableTitlesItems from '../components/TablesTitlesItems';
+import TablesRecordsItemsBooks from '../components/TablesRecordsItmesBooks';
 import HeaderTables from '../components/TablesHeader'
 
 //data
@@ -54,8 +54,9 @@ const Books=()=>{
   
     //llamada a backen;
     const getBooks=async()=>{
+      const url=`http://127.0.0.1:3500/book`
       const token=localStorage.getItem('token')
-      const resp = await fetch("http://127.0.0.1:3500/book", {
+      const resp = await fetch(url, {
       method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -68,7 +69,7 @@ const Books=()=>{
     const books=result
     
 
-    console.log(books);
+    //console.log(books);
     setBooks(books)
   }
   

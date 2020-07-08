@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TablesRecordsItems=(props)=>{
-    const {nombre,correo,telefono,totOrd,ordAct,obs} = props.data
+    const {name,email,telefono,totOrd,ordAct,role} = props.data
     
     
     return(
@@ -9,8 +9,8 @@ const TablesRecordsItems=(props)=>{
 
                       <tr>
                         <th>1</th>
-                        <td>{nombre}</td>
-                        <td>{correo}</td>
+                        <td>{name}</td>
+                        <td>{email}</td>
                         <td>{telefono}</td>
                         
                         <td>{totOrd}</td>
@@ -21,7 +21,7 @@ const TablesRecordsItems=(props)=>{
                             <button className="button is-danger is-small"><i className="fas fa-user-times"></i></button>
                           </div>
                         </td>
-                        <td>{obs} </td>
+                        <td>{role} </td>
                       </tr>
                       
         </tbody>

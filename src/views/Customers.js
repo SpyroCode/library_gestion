@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import { Link } from "react-router-dom"
+//import { verify } from 'jsonwebtoken'
 import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
-import TableTitlesItems from '../components//TablesTitlesItems';
-import TablesRecordsItems from '../components//TablesRecordsItmes';
+import TableTitlesItems from '../components/TablesTitlesItems';
+import TablesRecordsItems from '../components/TablesRecordsItmes';
 import HeaderTables from '../components/TablesHeader'
 
 //data
@@ -39,53 +40,31 @@ const data=[
   },
   {
       Idx:7,
-      title:'Observaciones', 
+      title:'Role', 
   },
 
 
 
 ]
 
-const dataMiembros=[
-   {
-       Idx:1,
-       nombre:'Efren Almanza Lamas',
-       correo:'efren@gmail.com',
-       telefono:'46212345678',
-       totOrd:12,
-       ordAct:5,
-       activo:1,
-       obs:"loremww sffhkwhwfk",
-   },
-   {
-      Idx:1,
-      nombre:'Karla Almanza Morales',
-      correo:'karla@gmail.com',
-      telefono:'46252345678',
-      totOrd:22,
-      ordAct:1,
-      activo:1,
-      obs:"loremww sffhkwhwfk",
-  },
-  {
-      Idx:1,
-      nombre:'Carlos Almanza Morales',
-      correo:'dany@gmail.com',
-      telefono:'46214345678',
-      totOrd:12,
-      ordAct:0,
-      activo:1,
-      obs:"loremww sffhkwhwfk",
-  },
-]
+
 
 //data
 
 const Customers=()=>{
+  const [users,setUsers]=useState([])
+  useEffect( ()=>{
+    getUsers();
+  },[])
   //llamada a backen;
+
+    
+    
+    const url=`http://127.0.0.1:3500/user`
+    console.log(process.env.URL);
     const token=localStorage.getItem('token')
-    const getMember=async()=>{
-      const resp = await fetch("http://127.0.0.1:3500/user", {
+    const getUsers=async()=>{
+      const resp = await fetch(url, {
       method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -93,12 +72,17 @@ const Customers=()=>{
       },
       
     });
-    const jsonData = await resp.json();
-    console.log("Success:", jsonData.result);
+    const {result} = await resp.json();
+    //console.log("Success:", result);
+    const user=result
+    
+
+    //console.log(books);
+    setUsers(user)
   }
   
-    getMember()
   
+    //console.log(users);
     //llamada a backen
     return(
       <>
@@ -136,7 +120,7 @@ const Customers=()=>{
                     </tr>
                 </thead>   
 
-                        {dataMiembros.map((item, idx)=>{
+                        {users.map((item, idx)=>{
                                 return <TablesRecordsItems key={idx}data={item}/>
                         })}    
                                              
