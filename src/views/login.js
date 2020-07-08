@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 const Login = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [message,setmessage]=useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = async (event) => {
@@ -22,23 +23,22 @@ const Login = () => {
       body: JSON.stringify(data),
     });
     const jsonData = await resp.json();
-    console.log("Success:", jsonData);
+    console.log("Success:", jsonData.token);
 
-    // if (userName === "efren@gmail.com" && password === "1234") {
-    //   setLoggedIn(true);
-    // } else {
-    //   setIsError(true);
-    // }
+     if (jsonData.token) {
+       setLoggedIn(true);
+    } else {
+       setIsError(true);
+     }
   };
 
   if (isLoggedIn) {
-    console.log(isLoggedIn);
-    console.log(userName);
-    console.log(password);
+    
     return <Redirect to="/home" />;
   }
   if (isError) {
-    console.log("error de usuarios y contraseña");
+    console.log("error de usuarios o contraseña")
+    
   }
 
   return (
@@ -87,7 +87,7 @@ const Login = () => {
                     </span>
                   </div>
                 </div>
-
+                    <span>{message}</span>
                 <div className="field">
                   <button className="button is-success">Acceder</button>
                 </div>
