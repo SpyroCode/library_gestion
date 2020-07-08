@@ -20,6 +20,7 @@ const Header=()=>{
           
           <div className="navbar-brand">
             <Link
+              to="/"
               role="button"
               className="navbar-burger toggler"
               aria-label="menu"

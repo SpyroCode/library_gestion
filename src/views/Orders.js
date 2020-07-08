@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import { Link } from "react-router-dom"
 import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components//TablesTitlesItems';
 import TablesRecordsItemsOrders from '../components//TablesRecordsItmesOrders';
 import HeaderTables from '../components/TablesHeader'
+
 
 //data
 
@@ -42,41 +43,39 @@ const data=[
 
 ]
 
-const dataMiembros=[
-   {
-       Idx:1,
-       IdMiembro:1,
-       nombre:'Efren Almanza Lamas',
-       IdBook:2,
-       book:'Expert Angular',
-       fecha:'2020-07-02',
-       status:'Aprobada',
-       obs:"loremww sffhkwhwfk",
-   },
-   {
-    Idx:2, 
-    IdMiembro:1,
-    nombre:'Karla Almanza Morales',
-    IdBook:2,
-    book:'Eloquent JavaScript',
-    fecha:'2020-07-02',
-    status:'Pendiente',
-    obs:"loremww sffhkwhwfk",
-  },
-  {
-    Idx:2, 
-    IdMiembro:3,
-    nombre:'Daniel Almanza Morales',
-    IdBook:3,
-    book:'PHP,MySQL, JavaScript & CSS',
-    fecha:'2020-07-02',
-    status:'Entregado',
-    obs:"loremww sffhkwhwfk",
-  },
-]
-//data
 
-const Customers=()=>{
+const Orders=()=>{
+
+  const [orders,setOrders]=useState([])
+  useEffect( ()=>{
+    getOrders();
+  },[])
+  
+  //data
+    //llamada a backen;
+    const getOrders=async()=>{
+      
+      const token=localStorage.getItem('token')
+      const resp = await fetch("http://127.0.0.1:3500/orders", {
+      method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
+      
+    });
+    const {result} = await resp.json();
+    //console.log("Success:", result);
+    const orders=result
+    
+
+    //console.log(orders);
+    setOrders(orders)
+  }
+  
+    
+    
+    //llamada a backen
     return(
       <>
       <Header/> 
@@ -113,8 +112,8 @@ const Customers=()=>{
                     </tr>
                 </thead>   
 
-                        {dataMiembros.map((item, idx)=>{
-                                return <TablesRecordsItemsOrders key={idx}data={item}/>
+                        {orders.map((item, id)=>{
+                                return <TablesRecordsItemsOrders key={id}data={item}/>
                         })}    
                                              
                       
@@ -122,7 +121,7 @@ const Customers=()=>{
                   </table>
                </div>
                     {/* componente dinamicos tablas */}
-                   <Link href="#" className="button is-link is-outlined">Ver todos</Link>
+                   <Link to="orders" className="button is-link is-outlined">Ver todos</Link>
                 </div>
                 </div>
               </div>
@@ -137,4 +136,4 @@ const Customers=()=>{
     )
 }
 
-export default Customers
+export default Orders

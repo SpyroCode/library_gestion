@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import { Link } from "react-router-dom"
 import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
@@ -43,39 +43,37 @@ const data=[
 
 ]
 
-const dataMiembros=[
-   {
-       Idx:1,
-       titulo:'Eloquent JavaScript',
-       author:'Marin HaverBeker',
-       editorial:'o relly',
-       image:'http://www.headsem.com/wp-content/uploads/2015/11/aprender-a-programar-en-JavaScript.png',
-       status:'Disponible',
-       
-   },
-   {
-    Idx:2,
-    titulo:'Expert Angular',
-    author:'o relly',
-    editorial:'google',
-    image:'https://media2.ediciones-eni.com/libro/angular-desarrolle-sus-aplicaciones-web-con-el-framework-javascript-de-google-9782409025303_L.jpg',
-    status:'Prestado',
-    
-  },
-  {
-    Idx:3,
-    titulo:'PHP,MySQL, JavaScript & CSS',
-    author:'Robinson Nelson',
-    editorial:'o relly',
-    image:'http://akamaicovers.oreilly.com/images/0636920023487/lrg.jpg',
-    status:'Disponible',
-    
-  },
-]
 
 //data
 
-const Customers=()=>{
+const Books=()=>{
+  const [books,setBooks]=useState([])
+  useEffect( ()=>{
+    getBooks();
+  },[])
+  
+    //llamada a backen;
+    const getBooks=async()=>{
+      const token=localStorage.getItem('token')
+      const resp = await fetch("http://127.0.0.1:3500/book", {
+      method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
+      
+    });
+    const {result} = await resp.json();
+    //console.log("Success:", jsonData.result);
+    const books=result
+    
+
+    console.log(books);
+    setBooks(books)
+  }
+  
+  
+    //llamada a backen
     return(
       <>
       <Header/> 
@@ -104,15 +102,15 @@ const Customers=()=>{
                     <thead>
                       <tr>
                       
-                          {data.map((item, idx)=>{
-                                  return <TableTitlesItems key={idx}data={item}/>
+                          {data.map((item, id)=>{
+                                  return <TableTitlesItems key={id}data={item}/>
                           })}   
                       
                       
                       </tr>
                   </thead>   
 
-                          {dataMiembros.map((item, idx)=>{
+                          {books.map((item, idx)=>{
                                   return <TablesRecordsItemsBooks key={idx}data={item}/>
                           })}    
                                               
@@ -121,7 +119,7 @@ const Customers=()=>{
                     </table>
                 </div>
                       {/* componente dinamicos tablas */}
-                    <Link href="#" className="button is-link is-outlined">Ver todos</Link>
+                    <Link to="books" className="button is-link is-outlined">Ver todos</Link>
                   </div>
                   </div>
                 </div>
@@ -136,4 +134,4 @@ const Customers=()=>{
     )
 }
 
-export default Customers
+export default Books

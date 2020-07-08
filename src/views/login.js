@@ -4,9 +4,10 @@ import { Redirect } from "react-router-dom";
 const Login = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [message,setmessage]=useState("");
+  //const [message,setmessage]=useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  //llamada a backen;
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -14,7 +15,6 @@ const Login = () => {
       email: userName,
       password: password,
     };
-    //console.log(data);
     const resp = await fetch("http://127.0.0.1:3500/login", {
       method: "POST", // or 'PUT'
       headers: {
@@ -24,9 +24,11 @@ const Login = () => {
     });
     const jsonData = await resp.json();
     console.log("Success:", jsonData.token);
+    //llamada a backen
 
      if (jsonData.token) {
-       setLoggedIn(true);
+      localStorage.setItem('token',jsonData.token); 
+      setLoggedIn(true);
     } else {
        setIsError(true);
      }
@@ -87,7 +89,7 @@ const Login = () => {
                     </span>
                   </div>
                 </div>
-                    <span>{message}</span>
+                    
                 <div className="field">
                   <button className="button is-success">Acceder</button>
                 </div>

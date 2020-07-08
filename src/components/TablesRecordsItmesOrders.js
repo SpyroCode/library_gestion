@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const TablesRecordsItems=(props)=>{
-    const {nombre,book,fecha,status,obs} = props.data
+    const {User,Title,fecha,status} = props.data
     
     
     return(
@@ -10,8 +10,8 @@ const TablesRecordsItems=(props)=>{
 
                       <tr>
                         <th>1</th>
-                        <td>{nombre}</td>
-                        <td>{book}</td>
+                        <td>{User}</td>
+                        <td>{Title}</td>
                         <td>{fecha}</td>                        
                         <td>{status}</td>
                         <td>
@@ -20,7 +20,7 @@ const TablesRecordsItems=(props)=>{
                             <button className="button is-danger is-small"><i className="fas fa-ban"></i></button>
                           </div>
                         </td>
-                        <td>{obs}</td>
+                        <td>Sin Observaciones</td>
                       </tr>
                       
         </tbody>

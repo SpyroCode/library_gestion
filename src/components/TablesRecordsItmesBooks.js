@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const TablesRecordsItems=(props)=>{
-    const {titulo,author,editorial,image,status} = props.data
+    const {name,author,editorial,image,status} = props.data
     
     
     return(
@@ -10,7 +10,7 @@ const TablesRecordsItems=(props)=>{
 
                       <tr>
                         <th>1</th>
-                        <td>{titulo}</td>
+                        <td>{name}</td>
                         <td>{author}</td>
                         <td>{editorial}</td>
                         

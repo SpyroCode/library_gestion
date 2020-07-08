@@ -82,6 +82,24 @@ const dataMiembros=[
 //data
 
 const Customers=()=>{
+  //llamada a backen;
+    const token=localStorage.getItem('token')
+    const getMember=async()=>{
+      const resp = await fetch("http://127.0.0.1:3500/user", {
+      method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
+      
+    });
+    const jsonData = await resp.json();
+    console.log("Success:", jsonData.result);
+  }
+  
+    getMember()
+  
+    //llamada a backen
     return(
       <>
       <Header/> 
@@ -127,7 +145,7 @@ const Customers=()=>{
                   </table>
                </div>
                     {/* componente dinamicos tablas */}
-                   <Link href="#" className="button is-link is-outlined">Ver todos</Link>
+                   <Link to="customers" className="button is-link is-outlined">Ver todos</Link>
                 </div>
                 </div>
               </div>
