@@ -35,6 +35,7 @@ const Login = () => {
       localStorage.setItem('tokenName',jsonData.tokenData.name); 
       localStorage.setItem('tokenRole',jsonData.tokenData.role);
       localStorage.setItem('tokenid',jsonData.tokenData.id); 
+      localStorage.setItem('tokenMail',jsonData.tokenData.email); 
       setLoggedIn(true);
     } else {
        setIsError(true);

@@ -3,15 +3,16 @@ import { Redirect } from "react-router-dom";
 
 const EditMember = () => {
   
-  const [Name, setName] = useState("");
+  const [Name, setName] = useState(localStorage.getItem('tokenName'));
   const [Password, setPassword] = useState("");
-  const [Mail, setMail] = useState("");
+  const [Mail, setMail] = useState(localStorage.getItem('tokenMail'));
   
   const [isCreated, setCredated] = useState(false);
   const [isError, setIsError] = useState(false);
   const handleSubmit = async (event) => {
+    const idUser=localStorage.getItem("tokenid")
     event.preventDefault();
-    const url = `http://127.0.0.1:3500/user`;
+    const url = `http://127.0.0.1:3500/user/update/${idUser}`;
     const token = localStorage.getItem("token");
     const data = {
       name: Name,
@@ -32,6 +33,8 @@ const EditMember = () => {
     //llamada a backen
     if (jsonData.result != null) {
       setCredated(true);
+      localStorage.setItem('tokenMail',Mail); 
+      localStorage.setItem("tokenName",Name)
     } else {
       setIsError(true);
     }
@@ -41,7 +44,7 @@ const EditMember = () => {
     return <Redirect to="/profile" />;
   }
   if (isError) {
-    console.log("error al crear usuario");
+    console.log("error al editar usuario");
   }
   return (
     <div>
@@ -73,7 +76,7 @@ const EditMember = () => {
               className="input"
               type="text"
               placeholder="Password"
-              required
+              
               value={Password}
               onChange={(e) => {
                 setPassword(e.target.value);
