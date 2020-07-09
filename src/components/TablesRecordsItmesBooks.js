@@ -1,39 +1,98 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 
+const TablesRecordsItems = (props) => {
+  const { id, name, author, editorial, image, status } = props.data;
+  const [isUpdate, setUpdate] = useState(false);
+  const [isOrder, setOrder] = useState(false);
+  const [isError, setIsError] = useState(false);
+  useEffect(() => {}, []);
+  const token = localStorage.getItem("token");
+  const idUser = localStorage.getItem("tokenid");
+  const nameUser = localStorage.getItem("tokenName");
+  const url = `http://localhost:3500/book/baja/${id}`;
+  const urlOrder = `http://localhost:3500/orders`;
+  const desactivarBook = async () => {
+    const resp = await fetch(url, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    });
+    const jsonData = await resp.json();
+    console.log("Success:", jsonData.result);
+    if (jsonData.result != null) {
+      setUpdate(true);
+    } else {
+      setIsError(true);
+    }
+    //llamada a backen
+  };
+  const OrderBook = async () => {
+    const data = {
+      idUser: idUser,
+      idBook: id,
+      User: nameUser,
+      Title: name,
+      status: "Pendiente",
+      fecha: "2020-07-05",
+    };
+    const resp = await fetch(urlOrder, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(data),
+    });
+    const jsonData = await resp.json();
+    console.log("Success:", jsonData.result);
+    if (jsonData.result != null) {
+      setOrder(true);
+    } else {
+      setIsError(true);
+    }
+    //llamada a backen
+  };
 
-const TablesRecordsItems=(props)=>{
-    const {name,author,editorial,image,status} = props.data
-    
-    
-    return(
-        <tbody>
+  if (isUpdate) {
+    return <Redirect to="/Books" />;
+  }
+  if (isOrder) {
+    return <Redirect to="/myOrders" />;
+  }
+  if (isError) {
+    console.log("error al editar");
+  }
+  return (
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td>{name}</td>
+        <td>{author}</td>
+        <td>{editorial}</td>
 
-                      <tr>
-                        <th>1</th>
-                        <td>{name}</td>
-                        <td>{author}</td>
-                        <td>{editorial}</td>
-                        
-                        <td>
-                        <img
-                            src={`${image}`}
-                            alt=""
-                            width="40px"
-                        />
-                        </td>
-                        <td>{status}</td>
-                        <td>
-                          <div className="buttons">
-                            <button className="button is-warning is-small"><i className="fas fa-edit"></i></button>
-                            <button className="button is-danger is-small"><i className="fas fa-ban"></i></button>
-                          </div>
-                        </td>
-                       
-                      </tr>
-                      
-        </tbody>
+        <td>
+          <img src={`${image}`} alt="" width="40px" />
+        </td>
+        <td>{status}</td>
+        <td>
+          <div className="buttons">
+            <button onClick={OrderBook} className="button is-success is-small">
+            <i class="fas fa-cart-arrow-down"></i>
+            </button>
+            <button
+              onClick={desactivarBook}
+              className="button is-danger is-small"
+            >
+              <i className="fas fa-ban"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  );
+};
 
-    )
-}
-
-export default TablesRecordsItems
+export default TablesRecordsItems;
