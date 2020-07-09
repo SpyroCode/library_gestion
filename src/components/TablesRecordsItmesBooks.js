@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 
 const TablesRecordsItems = (props) => {
+  useEffect(() => {}, []);
   const { id, name, author, editorial, image, status } = props.data;
   const [isUpdate, setUpdate] = useState(false);
   const [isOrder, setOrder] = useState(false);
   const [isError, setIsError] = useState(false);
   const fecha= new Date()
-  useEffect(() => {}, []);
   const token = localStorage.getItem("token");
   const idUser = localStorage.getItem("tokenid");
   const nameUser = localStorage.getItem("tokenName");
