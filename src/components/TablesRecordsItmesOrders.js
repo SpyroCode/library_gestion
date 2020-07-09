@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 
 const TablesRecordsItems = (props) => {
   const { id, User, Title, fecha, status } = props.data;
-  useEffect(() => {}, []);
+  //useEffect(() => {}, []);
   const [isUpdate, setUpdate] = useState(false);
   const [isStatus, setStatus] = useState("");
   const [isError, setIsError] = useState(false);

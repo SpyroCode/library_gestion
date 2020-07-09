@@ -6,12 +6,11 @@ import NavProfile from '../components/NavProfile';
 
 
 const Header=()=>{
+    const name=localStorage.getItem('tokenName')
     const data=[ 
         {
-          name:'Efren Almanza Lamas',
-          user:'efren',
-          email:'efren@gmail.com',
-          role:'admin'  
+          name,
+         
         },
     ]
     return(
