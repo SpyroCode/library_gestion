@@ -25,7 +25,7 @@ const data=[
   },
   {
       Idx:3,
-      title:'Telefono', 
+      title:'Status', 
   },
   {
       Idx:4,
