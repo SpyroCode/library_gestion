@@ -1,12 +1,11 @@
 import React, {useState,useEffect} from 'react'
 import { Link } from "react-router-dom"
-//import { verify } from 'jsonwebtoken'
 import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
-import TableTitlesItems from '../components/TablesTitlesItems';
-import TablesRecordsItems from '../components/TablesRecordsItmes';
+import TableTitlesItems from '../components//TablesTitlesItems';
+import TablesRecordsItemsOrders from '../components//TablesRecordsItmesOrders';
 import HeaderTables from '../components/TablesHeader'
-import AddMember from '../components/AddMember';
+
 
 //data
 
@@ -21,27 +20,23 @@ const data=[
   },
   {
       Idx:2,
-      title:'Correo', 
+      title:'Libro', 
   },
   {
       Idx:3,
-      title:'Telefono', 
+      title:'Fecha', 
   },
   {
       Idx:4,
-      title:'Totales', 
+      title:'Status', 
   },
   {
       Idx:5,
-      title:'Activas', 
-  },
-  {
-      Idx:6,
       title:'Acciones', 
   },
   {
-      Idx:7,
-      title:'Role', 
+      Idx:6,
+      title:'Observaciones', 
   },
 
 
@@ -49,22 +44,20 @@ const data=[
 ]
 
 
+const MyOrders=()=>{
 
-//data
-
-const Customers=()=>{
-  const [users,setUsers]=useState([])
+  const [orders,setOrders]=useState([])
   useEffect( ()=>{
-    getUsers();
+    getOrders();
   },[])
-  //llamada a backen;
-
-    
-    
-    const url=`http://127.0.0.1:3500/user`
-    console.log(process.env.URL);
-    const token=localStorage.getItem('token')
-    const getUsers=async()=>{
+  
+  //data
+    //llamada a backen;
+    const getOrders=async()=>{
+      
+      const token=localStorage.getItem('token')
+      const idUser=localStorage.getItem('tokenid')
+      const url=`http://127.0.0.1:3500/orders/${idUser}`
       const resp = await fetch(url, {
       method: "GET", // or 'PUT'
       headers: {
@@ -75,21 +68,21 @@ const Customers=()=>{
     });
     const {result} = await resp.json();
     //console.log("Success:", result);
-    const user=result
+    const orders=result
     
 
-    //console.log(books);
-    setUsers(user)
+    //console.log(orders);
+    setOrders(orders)
   }
   
-  
-    //console.log(users);
+    
+    
     //llamada a backen
     return(
       <>
       <Header/> 
         
-      <div className="columns is-variable is-0">
+        <div className="columns is-variable is-0">
       <Asidebar/>
       <div className="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile">
         <div className="p-1">
@@ -104,8 +97,8 @@ const Customers=()=>{
           <div className="columns  is-variable is-desktop">
             <div className="column">
             <div className="column is-full">
-              <div className="card">
-              <HeaderTables modalComponent={<AddMember/>}/>
+              <div className ="card">
+              <HeaderTables/>
                 <div className="card-content">
                     {/* componente dinamicos tablas */}
                   <div className="media">
@@ -121,8 +114,8 @@ const Customers=()=>{
                     </tr>
                 </thead>   
 
-                        {users.map((item, idx)=>{
-                                return <TablesRecordsItems key={idx}data={item}/>
+                        {orders.map((item, id)=>{
+                                return <TablesRecordsItemsOrders key={id}data={item}/>
                         })}    
                                              
                       
@@ -130,19 +123,19 @@ const Customers=()=>{
                   </table>
                </div>
                     {/* componente dinamicos tablas */}
-                   <Link to="customers" className="button is-link is-outlined">Ver todos</Link>
+                   <Link to="myorders" className="button is-link is-outlined">Ver todos</Link>
                 </div>
                 </div>
               </div>
               
             </div>
           </div>
-           
-        </div> 
-      </div>  
+          
+        </div>
       </div>
+      </div>   
       </>
     )
 }
 
-export default Customers
+export default MyOrders

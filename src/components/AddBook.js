@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 
-const AddMember = () => {
-  const [userName, setUserName] = useState("");
+const AddBook = () => {
   const [Name, setName] = useState("");
-  const [Password, setPassword] = useState("");
-  const [Mail, setMail] = useState("");
-  const [Role, setRole] = useState("");
+  const [Author, setAuthor] = useState("");
+  const [Editorial, setEditorial] = useState("");
+  const [Urlmage, setUrlmage] = useState("");
   const [isCreated, setCredated] = useState(false);
   const [isError, setIsError] = useState(false);
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const url = `http://127.0.0.1:3500/user`;
+    const url = `http://127.0.0.1:3500/book`;
     const token = localStorage.getItem("token");
     const data = {
       name: Name,
-      email: Mail,
-      password: Password,
-      role: Role,
-      status: "activo",
+      author: Author,
+      editorial: Editorial,
+      image: Urlmage,
+      status: "disponible",
     };
     const resp = await fetch(url, {
       method: "POST", // or 'PUT'
@@ -39,21 +38,21 @@ const AddMember = () => {
   };
   if (isCreated) {
     console.log("creado");
-    return <Redirect to="/customers" />;
+    return <Redirect to="/books" />;
   }
   if (isError) {
-    console.log("error al crear usuario");
+    console.log("error al crear libro");
   }
   return (
     <div>
       <form onSubmit={handleSubmit} className="box">
         <div className="field">
-          <label className="label">Nombre</label>
+          <label className="label">Title</label>
           <div className="control has-icons-left has-icons-right">
             <input
               className="input"
               type="text"
-              placeholder="Nombre"
+              placeholder="Title"
               required
               value={Name}
               onChange={(e) => {
@@ -61,85 +60,67 @@ const AddMember = () => {
               }}
             />
             <span className="icon is-small is-left">
-              <i className="fas fa-user"></i>
+            <i class="fas fa-book"></i>
             </span>
           </div>
         </div>
         <div className="field">
-          <label className="label">Username</label>
+          <label className="label">Autor</label>
           <div className="control has-icons-left has-icons-right">
             <input
               className="input"
               type="text"
-              placeholder="Username"
+              placeholder="Autor"
               required
-              value={userName}
+              value={Author}
               onChange={(e) => {
-                setUserName(e.target.value);
+                setAuthor(e.target.value);
               }}
             />
             <span className="icon is-small is-left">
-              <i className="fas fa-user"></i>
+            <i class="fal fa-brain"></i>
             </span>
           </div>
         </div>
 
         <div className="field">
-          <label className="label">Password</label>
+          <label className="label">Editorial</label>
           <div className="control has-icons-left has-icons-right">
             <input
               className="input"
               type="text"
-              placeholder="Password"
+              placeholder="Editorial"
               required
-              value={Password}
+              value={Editorial}
               onChange={(e) => {
-                setPassword(e.target.value);
+                setEditorial(e.target.value);
               }}
             />
             <span className="icon is-small is-left">
-              <i className="fas fa-key"></i>
+            <i class="fas fa-book-reader"></i>
             </span>
           </div>
         </div>
         <div className="field">
-          <label className="label">Email</label>
+          <label className="label">Urlmage</label>
           <div className="control has-icons-left has-icons-right">
             <input
               className="input"
-              type="email"
-              placeholder="mail@domain.com"
+              type="text"
+              placeholder="url images"
               required
-              value={Mail}
+              value={Urlmage}
               onChange={(e) => {
-                setMail(e.target.value);
+                setUrlmage(e.target.value);
               }}
             />
             <span className="icon is-small is-left">
-              <i className="fas fa-envelope"></i>
+            <i class="fas fa-images"></i>
             </span>
           </div>
           <br />
         </div>
-        <div className="field">
-          <label className="label">Role</label>
-          <div className="control has-icons-left has-icons-right">
-            <div className="select">
-              <select
-                className="select"
-                required
-                value={Role}
-                onChange={(e) => {
-                  setRole(e.target.value);
-                }}
-              >
-                <option>selecione...</option>
-                <option>member</option>
-                <option>admin</option>
-              </select>
-            </div>
-          </div>
-        </div>
+        
 
         <div className="field">
           <button className="button is-success is-small">Guardar</button>
@@ -149,4 +130,4 @@ const AddMember = () => {
   );
 };
 
-export default AddMember;
+export default AddBook;

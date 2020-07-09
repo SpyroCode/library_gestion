@@ -1,8 +1,8 @@
 import React from 'react';
 import Modal from './Modal';
-import AddMember from './AddMember';
 
-const HeaderTables=()=>{
+
+const HeaderTables=(props)=>{
 
     const modalRef=React.useRef();
     const openModal=()=>{
@@ -33,11 +33,11 @@ const HeaderTables=()=>{
                  
         </header>
         <Modal ref={modalRef}>
-        <AddMember/>
+        {props.modalComponent}
         <div className="buttons">
           <button onClick={()=>modalRef.current.close()} className="button is-info is-small">Cerrar</button>
           
-          <button className="button is-success is-small">Guardar</button>
+          
         </div>
         
       </Modal>

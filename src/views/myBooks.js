@@ -5,8 +5,6 @@ import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components/TablesTitlesItems';
 import TablesRecordsItemsBooks from '../components/TablesRecordsItmesBooks';
 import HeaderTables from '../components/TablesHeader'
-import AddBook from '../components/AddBook';
-
 
 //data
 
@@ -48,7 +46,7 @@ const data=[
 
 //data
 
-const Books=()=>{
+const MyBooks=()=>{
   const [books,setBooks]=useState([])
   
   useEffect( ()=>{
@@ -57,8 +55,9 @@ const Books=()=>{
   
     //llamada a backen;
     const getBooks=async()=>{
-      
-      const url=`http://127.0.0.1:3500/book/`
+      const idUser=localStorage.getItem('tokenid')
+      const url=`http://127.0.0.1:3500/book/${idUser}`
+      console.log(url)
       const token=localStorage.getItem('token')
       const resp = await fetch(url, {
       method: "GET", // or 'PUT'
@@ -71,10 +70,15 @@ const Books=()=>{
     const {result} = await resp.json();
     //console.log("Success:", jsonData.result);
     const books=result
-    
+    if(books===null){
+      setBooks([])
+    }else{
+      setBooks(books)
+    }
 
-    //console.log(books);
-    setBooks(books)
+
+    console.log(books);
+    
   }
   
   
@@ -99,7 +103,7 @@ const Books=()=>{
               <div className="column">
               <div className ="column is-full">
                 <div className="card">
-                <HeaderTables modalComponent={<AddBook/>}/>
+                <HeaderTables/>
                   <div className="card-content">
                       {/* componente dinamicos tablas */}
                     <div className="media">
@@ -139,4 +143,4 @@ const Books=()=>{
     )
 }
 
-export default Books
+export default MyBooks

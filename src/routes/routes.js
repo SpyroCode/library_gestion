@@ -15,6 +15,8 @@ import Logoff from '../views/logoff';
 import Profile from '../views/Profile';
 import Settings from '../views/Settings';
 import PrivateRoute from './PrivateRoutes';
+import MyBooks from '../views/myBooks';
+import MyOrders from '../views/myOrders';
 
 
 const Rutas=()=>{
@@ -32,13 +34,13 @@ const Rutas=()=>{
                             
                             <PrivateRoute path="/books" component={Books}/>
                         
-                            <PrivateRoute path="/mybooks" component={Books}/>
+                            <PrivateRoute path="/mybooks" component={MyBooks}/>
                             
                             <PrivateRoute path="/customers" component={Customers}/>
                                                         
                             <PrivateRoute path="/orders" component={Orders}/>
                             
-                            <PrivateRoute path="/myorders" component={Orders}/>
+                            <PrivateRoute path="/myorders" component={MyOrders}/>
 
                             <PrivateRoute path="/profile" component={Profile}/>
 
