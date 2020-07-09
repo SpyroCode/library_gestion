@@ -97,7 +97,7 @@ const Orders=()=>{
             <div className="column">
             <div className="column is-full">
               <div className ="card">
-              <HeaderTables/>
+              
                 <div className="card-content">
                     {/* componente dinamicos tablas */}
                   <div className="media">

@@ -90,7 +90,7 @@ const Asidebar=()=>{
               <p className="menu-label has-text-lighter">Panel de Usuario</p>
               <ul className="menu-list">
                 <li>
-                  <NavLink to="books" className="has-text-black" activeClassName="has-text-white is-active">
+                  <NavLink to="myBooks" className="has-text-black" activeClassName="has-text-white is-active">
                     <i className="fas fa-book icon"></i>
                     Libros</NavLink>
                 </li>

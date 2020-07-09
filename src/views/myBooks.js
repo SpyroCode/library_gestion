@@ -5,6 +5,9 @@ import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components/TablesTitlesItems';
 import TablesRecordsItemsBooks from '../components/TablesRecordsItmesBooks';
 import HeaderTables from '../components/TablesHeader'
+import AddBook from '../components/AddBook';
+import TablesRecordsItemsMyBooks from '../components/TablesRecordsItmesMyBooks';
+
 
 //data
 
@@ -46,7 +49,7 @@ const data=[
 
 //data
 
-const MyBooks=()=>{
+const Books=()=>{
   const [books,setBooks]=useState([])
   
   useEffect( ()=>{
@@ -55,9 +58,8 @@ const MyBooks=()=>{
   
     //llamada a backen;
     const getBooks=async()=>{
-      const idUser=localStorage.getItem('tokenid')
-      const url=`http://127.0.0.1:3500/book/${idUser}`
-      console.log(url)
+      
+      const url=`http://127.0.0.1:3500/book/`
       const token=localStorage.getItem('token')
       const resp = await fetch(url, {
       method: "GET", // or 'PUT'
@@ -70,15 +72,10 @@ const MyBooks=()=>{
     const {result} = await resp.json();
     //console.log("Success:", jsonData.result);
     const books=result
-    if(books===null){
-      setBooks([])
-    }else{
-      setBooks(books)
-    }
-
-
-    console.log(books);
     
+
+    //console.log(books);
+    setBooks(books)
   }
   
   
@@ -103,7 +100,7 @@ const MyBooks=()=>{
               <div className="column">
               <div className ="column is-full">
                 <div className="card">
-                <HeaderTables/>
+                <HeaderTables modalComponent={<AddBook/>}/>
                   <div className="card-content">
                       {/* componente dinamicos tablas */}
                     <div className="media">
@@ -120,7 +117,7 @@ const MyBooks=()=>{
                   </thead>   
 
                           {books.map((item, idx)=>{
-                                  return <TablesRecordsItemsBooks key={idx}data={item}/>
+                                  return <TablesRecordsItemsMyBooks key={idx}data={item}/>
                           })}    
                                               
                         
@@ -143,4 +140,4 @@ const MyBooks=()=>{
     )
 }
 
-export default MyBooks
+export default Books

@@ -5,6 +5,7 @@ import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components//TablesTitlesItems';
 import TablesRecordsItemsOrders from '../components//TablesRecordsItmesOrders';
 import HeaderTables from '../components/TablesHeader'
+import TablesRecordsItemsMember from '../components/TablesRecordsItmesOrdersMember';
 
 
 //data
@@ -30,10 +31,7 @@ const data=[
       Idx:4,
       title:'Status', 
   },
-  {
-      Idx:5,
-      title:'Acciones', 
-  },
+  
   {
       Idx:6,
       title:'Observaciones', 
@@ -98,7 +96,7 @@ const MyOrders=()=>{
             <div className="column">
             <div className="column is-full">
               <div className ="card">
-              <HeaderTables/>
+              
                 <div className="card-content">
                     {/* componente dinamicos tablas */}
                   <div className="media">
@@ -115,7 +113,7 @@ const MyOrders=()=>{
                 </thead>   
 
                         {orders.map((item, id)=>{
-                                return <TablesRecordsItemsOrders key={id}data={item}/>
+                                return <TablesRecordsItemsMember key={id}data={item}/>
                         })}    
                                              
                       
