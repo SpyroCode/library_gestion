@@ -11,7 +11,7 @@ function PrivateRoute({ component: Component, ...rest }) {
       isAuthenticated=false
 
     }
-    console.log(isAuthenticated)
+    
   
   return(
     <Route

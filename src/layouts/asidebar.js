@@ -1,9 +1,13 @@
 import React from 'react'
 //import NavMenuItem from '../components/NavMenuItem';
 import { NavLink } from 'react-router-dom';
+import MenuAdmin from '../components/MenuAdmin';
+
+
 
 
 const Asidebar=()=>{
+  
 
     // const data=[
     //     {
@@ -53,40 +57,7 @@ const Asidebar=()=>{
                     Dashboard</NavLink>
                 </li>
               </ul>
-              <p className="menu-label has-text-lighter">Administracion</p>
-              <ul className="menu-list">
-                <li>
-                  <NavLink to="settings" className="has-text-black" activeClassName="is-active">
-                    <i className="fas fa-cogs icon"></i>
-                    Configuraciones</NavLink>
-                </li>
-                <div className="navbar-item has-dropdown is-hoverable"> 
-                <li>
-                <div className="navbar-link">
-                    <i className="fas fa-users-cog icon"></i>
-                    Panel de Administracion</div>
-                  <div className="navbar-dropdown">  
-                  <ul>
-                    <li>
-                      <NavLink to="customers" className="has-text-black" activeClassName="is-active">
-                        <i className="fas fa-users icon"></i>
-                        Miembros</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="books" className="has-text-black" activeClassName="is-active">
-                        <i className="fas fa-book icon"></i>
-                        Libros</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="orders" className="has-text-black" activeClassName="is-active">
-                      <i className="fas fa-clipboard-list icon"></i>
-                        Ordenes</NavLink>
-                    </li>
-                  </ul>
-                  </div>
-                </li>
-                </div>
-              </ul>
+              <MenuAdmin/>
               <p className="menu-label has-text-lighter">Panel de Usuario</p>
               <ul className="menu-list">
                 <li>
