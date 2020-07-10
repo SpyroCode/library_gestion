@@ -1,10 +1,14 @@
-Aplicaccion para Aminstracion de una biblioteca, el objetivo de esta app es poder llevar el control de los libros prestados y entregados, pose dos perfiles Administrador y Miembros estos segundos son aquellos que no tienen acceso a las herraminetas de adminstrador, el administrador pued dar de Alta a miembros y asu ves a adminsitradores, autoriza ordenes de pesrtamo o entregado y agregar libros al inventario.
+Aplicaccion para Administracion de una biblioteca, el objetivo de esta app es poder llevar el control de los libros prestados y entregados, pose dos perfiles Administrador y Miembros estos segundos son aquellos que no tienen acceso a las herraminetas de adminstrador, el administrador pued dar de Alta a miembros y asu ves a adminsitradores, autoriza ordenes de pesrtamo o entregado y agregar libros al inventario.
 
 El miembro puede entrar con la contraseña proporcionada por una admintrador y cambiarla en su perfil, asi como sus datos, puede ver el inventario de libros y solicitar el prestamo, y podra visualizar sus ordenes
 
 ## Available Scripts
 
-una vez Clonado en Repositodio debe de entrar a su carpera y ejecutar el siguente comando
+Una vez Clonado en Repositorio debe de entrar a su carpera y ejecutar el siguente comando
+
+### `npm i`
+
+Para actualziar e instalara las dependencias y el siguente comando para desplegar la aplicacion
 
 ### `npm start`
 
@@ -25,6 +29,9 @@ Se compone de Varias carpetas en su interior
  /routes Rutas de la aplicacion asi como la funcion para rutas protegidas
  /views Todas las vistas de la aplicación
 
+<!--Datos acceso para pruebas NOTA: no usar en producción--->
+///Username: efren.almanza@gmail.com
+///Password: qwerty
 
 Árbol de rutas y archivos
  /src
