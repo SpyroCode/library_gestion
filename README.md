@@ -72,7 +72,7 @@ Perfil Miembro
 ```
  1.-Componentes para recuperar password
  2.-Crear su propio usuario
- 3.-Sistema de notificaciones y correos
+ 3.-Sistema de notificaciones, correos y avisos en Dashboard
  4.-Dashboard y reporteo
  5.-Mensajes de éxito
  6.-Recordar ultima pagina visitada y recordar el token para una acceder sin password y contraseña
