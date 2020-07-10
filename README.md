@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicaccion para Aminstracion de una biblioteca, el objetivo de esta app es poder llevar el control de los libros prestados y entregados, pose dos perfiles Administrador y Miembros estos segundos son aquellos que no tienen acceso a las herraminetas de adminstrador, el administrador pued dar de Alta a miembros y asu ves a adminsitradores, autoriza ordenes de pesrtamo o entregado y agregar libros al inventario.
+
+El miembro puede entrar con la contraseña proporcionada por una admintrador y cambiarla en su perfil, asi como sus datos, puede ver el inventario de libros y solicitar el prestamo, y podra visualizar sus ordenes
 
 ## Available Scripts
 
-In the project directory, you can run:
+una vez Clonado en Repositodio debe de entrar a su carpera y ejecutar el siguente comando
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+La aplicación corre en la siguiente dirección.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+Se ejecuta en modo desarrollo, Posteriormente se puede pasar a Producion<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+En la Carpera /src es la raíz de la aplicacion
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Se compone de Varias carpetas en su interior
+ /components  En esta carpeta se guarda todos los compenente que ejecutan las acciones de la aplicacion
+ /css Assets necesarios para los estilos css
+ /helpers  En esta carpeta se guarda los componentes auxiliares presenten en toda la aplicacion que comparte informcion con los compenentes padres, hijos hermanos en este caso el Auth sirbe para vaidar si esta autntificado, para validar si es Admin o Miembro
+ /img assets de imágenes
+ /layouts  estructura y diseño de la aplicacion
+ /routes Rutas de la aplicacion asi como la funcion para rutas protegidas
+ /views Todas las vistas de la aplicación
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Árbol de rutas y archivos
+ /src
+ /---components
+ /---css
+ /---helpers
+ /------auth.js <!--useContex ayuda con las variables compartidas UserContex-->
+ /---img
+ /---layout
+ /---routes
+ /------PrivateRoutes.js <!--funcion para rutas protegidas valida si estas autentificado -->
+ /------routes.js <!--archivo de rutas--->
+ /---views
+ /------app.js   <!---archivo principal--->
+ /index.js
+ /.gitignore
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+ la conexion al backend es la ruta [http://localhost:3500] esta fija aun no establece de forma dinamica
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+ Sugerencias de Contribución
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ Esta aplicacion aun no esta completa aun se puede mejora con esstas sugerencias
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ 1.-Componentes para recuperar password
+ 2.-Crear su propio usuario
+ 3.-Sistema de notificaciones y correos
+ 4.-Dashboard y reporteo
+ 5.-Mensajes de éxito
+ 6.-Recordar ultima pagina visitada y recordar el token para una acceder sin password y contraseña
+ 7.-Conexion dinámica al backend y variables de entorno
+ 8.-Mensajes de errores de conexión al usuario
+ 9.-Banderas de Conexión y Carga
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
