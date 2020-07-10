@@ -4,7 +4,7 @@ import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components//TablesTitlesItems';
 import TablesRecordsItemsOrders from '../components//TablesRecordsItmesOrders';
-import HeaderTables from '../components/TablesHeader'
+
 
 
 //data
@@ -45,7 +45,7 @@ const data=[
 
 
 const Orders=()=>{
-
+  
   const [orders,setOrders]=useState([])
   useEffect( ()=>{
     getOrders();
@@ -101,6 +101,7 @@ const Orders=()=>{
                 <div className="card-content">
                     {/* componente dinamicos tablas */}
                   <div className="media">
+                {process.env.REACT_APP_NOT_SECRET_CODE}
                   <table className="table">
                   <thead>
                     <tr>

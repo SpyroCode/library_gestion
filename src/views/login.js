@@ -9,6 +9,9 @@ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const {setUser}=useContext(UserContext);
+  const {userAuth}=useContext(UserContext);
+  
+  console.log('en login',userAuth)
   //llamada a backen;
   const handleSubmit = async (event) => {
     event.preventDefault();

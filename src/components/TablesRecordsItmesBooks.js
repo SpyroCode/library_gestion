@@ -81,7 +81,7 @@ const TablesRecordsItems = (props) => {
         <td>
           <div className="buttons">
             <button onClick={OrderBook} className="button is-success is-small">
-            <i class="fas fa-cart-arrow-down"></i>
+            <i className="fas fa-cart-arrow-down"></i>
             </button>
             <button
               onClick={desactivarBook}

@@ -4,7 +4,14 @@ import { UserContext } from "../helpers/auth";
 
 function PrivateRoute({ component: Component, ...rest }) {
     const {userAuth}=useContext(UserContext);
-    const isAuthenticated = userAuth;
+    let isAuthenticated=false
+    if(localStorage.getItem('token')!=null && userAuth.name!=null){
+      isAuthenticated=true
+    }else{
+      isAuthenticated=false
+
+    }
+    console.log(isAuthenticated)
   
   return(
     <Route

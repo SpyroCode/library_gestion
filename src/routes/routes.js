@@ -11,7 +11,7 @@ import Books from '../views/Books';
 import Customers from '../views/Customers';
 import Orders from '../views/Orders';
 import Login from '../views/login'
-import Logoff from '../views/logoff';
+import Logoff from '../components/logoff';
 import Profile from '../views/Profile';
 import Settings from '../views/Settings';
 import PrivateRoute from './PrivateRoutes';
@@ -59,7 +59,7 @@ const Rutas=()=>{
 
                             <PrivateRoute exact path="/contact" component={Contact}/>
                             
-                            <Route exact path="/logoff" component={Logoff}/>
+                            <Logoff exact path="/logoff" component={Logoff}/>
 
                             <Route exact path="/login" component={Login}/>
                             

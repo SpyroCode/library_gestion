@@ -67,13 +67,13 @@ const TablesRecordsItems = (props) => {
               onClick={prestarBook}
               className="button is-warning is-small"
             >
-              <i class="fas fa-sign-out-alt"></i>
+              <i className="fas fa-sign-out-alt"></i>
             </button>
             <button
               onClick={entregarBook}
               className="button is-success is-small"
             >
-              <i class="fab fa-get-pocket"></i>
+              <i className="fab fa-get-pocket"></i>
             </button>
           </div>
         </td>

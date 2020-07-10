@@ -3,8 +3,6 @@ import { Link } from "react-router-dom"
 import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components//TablesTitlesItems';
-import TablesRecordsItemsOrders from '../components//TablesRecordsItmesOrders';
-import HeaderTables from '../components/TablesHeader'
 import TablesRecordsItemsMember from '../components/TablesRecordsItmesOrdersMember';
 
 

@@ -10,7 +10,7 @@ import {UserContext } from "../helpers/auth";
 const Home=()=>{
 
   const {userAuth}=useContext(UserContext);
-  console.log(userAuth);
+  console.log('en Home',userAuth);
     return(
       <>
       <Header/> 

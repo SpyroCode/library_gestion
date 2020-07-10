@@ -29,7 +29,7 @@ const NavProfile=(props)=>{
                                     return <NavProfileItem key={idx}data={item}/>
                             })}  
                         <hr className="navbar-divider" />
-                        <Link to="login" className="navbar-item">
+                        <Link to="logoff" className="navbar-item">
 
                             <div>
                             <span><i className="fas fa-sign-out-alt icon"></i></span>

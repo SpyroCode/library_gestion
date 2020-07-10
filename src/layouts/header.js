@@ -1,12 +1,14 @@
-import React from 'react'
+import React,{useContext } from 'react'
 import Logo from '../components/Logo'
 import { Link } from "react-router-dom";
+import { UserContext } from "../helpers/auth";
 import NavProfile from '../components/NavProfile';
 
 
 
 const Header=()=>{
-    const name=localStorage.getItem('tokenName')
+  const {userAuth}=useContext(UserContext);
+    const name=userAuth.name
     const data=[ 
         {
           name,
