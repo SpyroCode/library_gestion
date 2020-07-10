@@ -21,6 +21,7 @@ You will also see any lint errors in the console.
 En la Carpera /src es la raíz de la aplicacion
 
 Se compone de Varias carpetas en su interior
+```
  /components  En esta carpeta se guarda todos los compenente que ejecutan las acciones de la aplicacion
  /css Assets necesarios para los estilos css
  /helpers  En esta carpeta se guarda los componentes auxiliares presenten en toda la aplicacion que comparte informcion con los compenentes padres, hijos hermanos en este caso el Auth sirbe para vaidar si esta autntificado, para validar si es Admin o Miembro
@@ -28,12 +29,23 @@ Se compone de Varias carpetas en su interior
  /layouts  estructura y diseño de la aplicacion
  /routes Rutas de la aplicacion asi como la funcion para rutas protegidas
  /views Todas las vistas de la aplicación
+```
+## Datos acceso para pruebas NOTA: no usar en producción
 
-<!--Datos acceso para pruebas NOTA: no usar en producción--->
+Perfil Administrador
+```
 ///Username: efren.almanza@gmail.com
 ///Password: qwerty
+```
+Perfil Miembro
 
-Árbol de rutas y archivos
+```
+///Username: efren@gmail.com
+///Password: qwerty
+```
+
+## Arbol de rutas y archivos
+```
  /src
  /---components
  /---css
@@ -49,13 +61,15 @@ Se compone de Varias carpetas en su interior
  /index.js
  /.gitignore
 
+```
  la conexion al backend es la ruta [http://localhost:3500] esta fija aun no establece de forma dinamica
 
 
- Sugerencias de Contribución
+ ## Sugerencias de Contribución
 
  Esta aplicacion aun no esta completa aun se puede mejora con esstas sugerencias
 
+```
  1.-Componentes para recuperar password
  2.-Crear su propio usuario
  3.-Sistema de notificaciones y correos
@@ -65,5 +79,5 @@ Se compone de Varias carpetas en su interior
  7.-Conexion dinámica al backend y variables de entorno
  8.-Mensajes de errores de conexión al usuario
  9.-Banderas de Conexión y Carga
-
+```
 
