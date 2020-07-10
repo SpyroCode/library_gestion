@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
+import { UserContext } from "../helpers/auth";
 
 const EditMember = () => {
-  
-  const [Name, setName] = useState(localStorage.getItem('tokenName'));
+  const { userAuth } = useContext(UserContext);
+  const [Name, setName] = useState(userAuth.name);
   const [Password, setPassword] = useState("");
-  const [Mail, setMail] = useState(localStorage.getItem('tokenMail'));
-  
+  const [Mail, setMail] = useState(userAuth.email);
+
   const [isCreated, setCredated] = useState(false);
   const [isError, setIsError] = useState(false);
   const handleSubmit = async (event) => {
-    const idUser=localStorage.getItem("tokenid")
+    const idUser = userAuth.id;
     event.preventDefault();
     const url = `http://127.0.0.1:3500/user/update/${idUser}`;
     const token = localStorage.getItem("token");
@@ -18,7 +19,6 @@ const EditMember = () => {
       name: Name,
       email: Mail,
       password: Password,
-      
     };
     const resp = await fetch(url, {
       method: "POST", // or 'PUT'
@@ -33,8 +33,6 @@ const EditMember = () => {
     //llamada a backen
     if (jsonData.result != null) {
       setCredated(true);
-      localStorage.setItem('tokenMail',Mail); 
-      localStorage.setItem("tokenName",Name)
     } else {
       setIsError(true);
     }
@@ -67,7 +65,6 @@ const EditMember = () => {
             </span>
           </div>
         </div>
-        
 
         <div className="field">
           <label className="label">Password</label>
@@ -76,7 +73,6 @@ const EditMember = () => {
               className="input"
               type="text"
               placeholder="Password"
-              
               value={Password}
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -106,7 +102,6 @@ const EditMember = () => {
           </div>
           <br />
         </div>
-       
 
         <div className="field">
           <button className="button is-success is-small">Guardar</button>

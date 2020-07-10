@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Redirect } from "react-router-dom";
+import { UserContext } from "../helpers/auth";
 
 const TablesRecordsItems = (props) => {
   useEffect(() => {}, []);
   const { id, name, author, editorial, image, status } = props.data;
+  const {userAuth}=useContext(UserContext);
   const [isUpdate, setUpdate] = useState(false);
   const [isOrder, setOrder] = useState(false);
   const [isError, setIsError] = useState(false);
   const fecha= new Date()
   const token = localStorage.getItem("token");
-  const idUser = localStorage.getItem("tokenid");
-  const nameUser = localStorage.getItem("tokenName");
+  const idUser = userAuth.id;
+  const nameUser = userAuth.name;
   const url = `http://localhost:3500/book/baja/${id}`;
   const urlOrder = `http://localhost:3500/orders`;
   const desactivarBook = async () => {

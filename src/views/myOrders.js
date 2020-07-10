@@ -1,5 +1,6 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect,useContext} from 'react'
 import { Link } from "react-router-dom"
+import { UserContext } from "../helpers/auth";
 import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
 import TableTitlesItems from '../components//TablesTitlesItems';
@@ -41,18 +42,18 @@ const data=[
 
 
 const MyOrders=()=>{
-
   const [orders,setOrders]=useState([])
   useEffect( ()=>{
     getOrders();
   },[])
+  const {userAuth}=useContext(UserContext);
   
   //data
     //llamada a backen;
     const getOrders=async()=>{
       
       const token=localStorage.getItem('token')
-      const idUser=localStorage.getItem('tokenid')
+      const idUser=userAuth.id
       const url=`http://127.0.0.1:3500/orders/${idUser}`
       const resp = await fetch(url, {
       method: "GET", // or 'PUT'

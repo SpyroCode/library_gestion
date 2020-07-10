@@ -1,16 +1,15 @@
-import React,{useContext}  from 'react'
+import React from 'react'
 import Header from '../layouts/header';
 import Asidebar from '../layouts/asidebar'
 import DashBoard from '../components/Dashboard'
 import Avisos from '../components/Avisos'
-import {UserContext } from "../helpers/auth";
+
 
 
 
 const Home=()=>{
 
-  const {userAuth}=useContext(UserContext);
-  console.log('en Home',userAuth);
+ 
     return(
       <>
       <Header/> 
