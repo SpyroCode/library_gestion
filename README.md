@@ -79,5 +79,6 @@ Perfil Miembro
  7.-Conexion dinámica al backend y variables de entorno
  8.-Mensajes de errores de conexión al usuario
  9.-Banderas de Conexión y Carga
+ 10.-Subir imagen de libros al backend
 ```
 
